@@ -41,6 +41,12 @@
 
 function showValues( obj ) {
   //Code Here
+  let string = ''
+  for (var key in obj){
+    const value = obj[key]
+    string = string + value;
+  }  
+  return string
 }
 
 
@@ -51,11 +57,25 @@ function showValues( obj ) {
   Write a function called greaterThan10 that takes in an object. 
   Write a for in loop that loops over the object and changes any value that is greater than 10 to 0. 
   Return the updated object.
+
+  for(let key in obj){
+    if(obj[key] > 10){
+      obj[key] = 0;
+    }
+  }
 */
+
 
 //Code Here
 
-
+function greaterThan10(obj){
+  for(let key in obj){
+    if (obj[key] > 10){
+      obj[key] = 0
+    }
+  }
+  return obj
+}
 
 ////////// PROBLEM 3 //////////
 
@@ -63,11 +83,21 @@ function showValues( obj ) {
   Write a function called double that takes in an object.
   Write a for in loop that loops over the object and changes every value to be itself multipled by 2.
   Return the updated object.
+
+  for(let key in obj){
+    obj[key] *= 2;
+  }
+
 */
 
 //Code Here
 
-
+function double (obj){
+  for (let key in obj){
+    obj[key] *= 2
+  }
+  return obj
+}
 
 ////////// PROBLEM 4 //////////
 
@@ -77,11 +107,27 @@ function showValues( obj ) {
   Write a for in loop that loops over the object.
   If the property name starts with an 'sh', concatenate the value to the string variable.
   By the end of the for in loop, you should have a sentence, return that sentence.
+  
+  let str = "";
+  for(let key in obj){
+    if(obj[key].indexOf("sh") === 0){
+     str = str + obj[key];
+    }
+  }
+  
 */
 
 //Code Here
 
-
+function secrets (obj){ 
+  let str = "";
+  for (let key in obj) {
+    if (key.substring(0, 2) === 'sh'){
+      str += obj[key]
+    }
+  }
+  return str
+}
 
 /* 
   Sometimes it's needed to delete object properties. 
@@ -89,17 +135,17 @@ function showValues( obj ) {
   Uncomment the example below to see a for in loop deleting all the properties inside an object.
 */
 
-// var deleteAllThethings = {
-//   one: 1,
-//   two: 2,
-//   three: 3
-// }
+ var deleteAllThethings = {
+   one: 1,
+   two: 2,
+   three: 3
+ }
 
-// for(var key in deleteAllThethings) {
-//   delete deleteAllThethings[key]
-// }
+ for(var key in deleteAllThethings) {
+   delete deleteAllThethings[key]
+ }
 
-// console.log(deleteAllThethings)
+ console.log(deleteAllThethings)
 
 
 
@@ -108,11 +154,17 @@ function showValues( obj ) {
 /*
   Write a function called removePassword that takes in an object.
   Delete the property password and return the object.
+  
+  delete obj["password"];
 */
+
 
 //Code Here
 
-
+function removePassword (obj){
+delete obj["password"]
+return obj
+}
 
 ////////// PROBLEM 6 //////////
 
@@ -127,9 +179,21 @@ var deleteTheBigNumbers = {
 
 /*
   Write a for in loop that deletes every property from the object deleteTheBigNumbers whose value is greater than 100.
-*/
+
+  for(let key in obj){
+    if(obj[key] > 100){
+      delete obj[key]
+    }
+  }
+  
+  */
 
 //Code Here
+  for(let key in deleteTheBigNumbers){
+    if(deleteTheBigNumbers[key] > 100){
+     delete deleteTheBigNumbers[key]
+    }
+  }
 
 
 
@@ -140,11 +204,26 @@ var deleteTheBigNumbers = {
   Write a for in loop to loop over the object.
   If any property name starts with k, delete that property.
   Return the updated object.
+
+  for(key in obj){
+    if(key[0] === "k"){
+      delete obj[key]
+    }
+  }
+  return obj;
+
 */
 
 //Code Here
 
-
+function startsWithK (obj){
+  for(let key in obj){
+    if(key[0] === "k"){
+      delete obj[key]
+    }
+  }
+  return obj
+}
 
 ////////// PROBLEM 8 //////////
 
@@ -154,9 +233,23 @@ var deleteTheBigNumbers = {
   If the property value does not contain the word 'treasure', delete the property.
   Return the updated object.
 
+  for(let key in obj){
+    if(!obj[key].includes("treasure")){
+      delete obj[key];
+    }
+  }
+  
+
   (hint: the method includes() may be of use...)
 */
 
 //Code Here
 
-
+function hiddenTreasure (obj){
+  for(let key in obj){
+    if(!obj[key].includes("treasure")){
+      delete obj[key];
+    }
+  }
+  return obj
+}

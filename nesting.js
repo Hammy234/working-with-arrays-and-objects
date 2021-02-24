@@ -52,7 +52,27 @@ var employees = [
 
 //Code Here
 
+function nameIsNotTheo (employee){
+  if (employee.firstName !== 'Theo'){
+    return true
+  }else {
+    return false
+  }
+}
 
+function changeLorieToHR (employee){
+  if (employee.firstName === 'Lorie'){
+    employee.department = 'HR'
+  }
+  return employee
+}
+
+
+function employeeUpdater (){
+  return employees
+          .filter(nameIsNotTheo)
+          .map(changeLorieToHR)
+}
 
 ////////// PROBLEM 2 //////////
 
@@ -70,7 +90,15 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 
 //Code Here
 
-
+function removeDuplicates (){
+  let deduped = []
+  workplaceAccidents.forEach( function (key) {
+    if (!deduped.includes(key)){
+      deduped.push(key)
+    }
+  });
+  return deduped
+}
 
 ////////// PROBLEM 3 //////////
 
@@ -97,8 +125,8 @@ var cat = {
 */
 
 //Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend = cat.catFriends[1].name
 
 
 
@@ -127,6 +155,9 @@ var myCar = {
     }
   ]
 }
+
+
+
 // Do not edit the code above.
 
 /*
@@ -139,13 +170,24 @@ var myCar = {
 */
 
 //Code Here
+function changeHistory (accident){
+  accident.atFaultForAccident = false
+  return accident;
+}
 
 
+function recordCleaner(){
+  myCar.accidents = myCar.accidents.map( changeHistory )
+}
 
 ////////// PROBLEM 5 //////////
 
 // Do not edit the code below.
-var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
+var numsArr = [ 
+  [1, 2, 3, 4],
+  [5, 6],
+  [7, 8, 9, 10, 11],
+];
 // Do not edit the code above.
 
 /*
@@ -159,4 +201,20 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 
 //Code Here
 
+function changeToEvenOdd (num){
+  if (num % 2 === 0){
+    return "even"
+  }else {
+    return "odd"
+  }
+}
+
+function changeAllToEvenOdd(nums) {
+  return nums.map( changeToEvenOdd )
+}
+
+function looper (){
+  numsArr = numsArr.map( changeAllToEvenOdd )
+  return numsArr;
+}
 
